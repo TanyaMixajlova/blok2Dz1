@@ -9,8 +9,6 @@ public class Product {
         this.price = price;
     }
 
-
-    //Создаём геттеры
     public String getName() {
         return this.name;
     }
@@ -18,12 +16,9 @@ public class Product {
         return this.price;
     }
 
-    //Реализуем вывод информации
     @Override
     public String toString() {
-        return "Имя" + this.name;
+        return "Имя" + this.name + "Стоимость " + this.price;
     }
-
-
 }
 
