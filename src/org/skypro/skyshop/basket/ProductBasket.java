@@ -2,7 +2,7 @@ package org.skypro.skyshop.basket;
 
 import org.skypro.skyshop.product.Product;
 
-public class ProductBasket {
+public class ProductBasket extends Product{
     private final Product[] productBasket = new Product[5];
 
 
