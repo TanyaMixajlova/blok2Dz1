@@ -3,17 +3,19 @@ package org.skypro.skyshop;
 import java.util.Scanner;
 
 import org.skypro.skyshop.product.Product;
+import org.skypro.skyshop.product.SimpleProduct;
 import org.skypro.skyshop.basket.ProductBasket;
-
+import org.skypro.skyshop.product.DiscountedProduct;
+import org.skypro.skyshop.product.FixPriceProduct;
 
 public class App {
     public static void main(String[] args) {
-        Product product1 = new Product("яблоки", 150);
-        Product product2 = new Product("сахар", 50);
-        Product product3 = new Product("кофе", 230);
-        Product product4 = new Product("конфеты", 360);
-        Product product5 = new Product("хлеб", 46);
-        Product product6 = new Product("молоко", 90);
+        SimpleProduct product1 = new SimpleProduct("яблоки", 150);
+        SimpleProduct product2 = new SimpleProduct("сахар", 50);
+        DiscountedProduct product3 = new DiscountedProduct("кофе", 200, (byte)20);
+        DiscountedProduct product4 = new DiscountedProduct("конфеты", 100, (byte)30);
+        FixPriceProduct product5 = new FixPriceProduct("хлеб");
+        FixPriceProduct product6 = new FixPriceProduct("молоко");
 
         ProductBasket element = new ProductBasket();
 

@@ -4,7 +4,7 @@ public abstract class Product {
     private final String name;
 
 
-    public Product(String name, int price) {
+    public Product(String name) {
         this.name = name;
     }
 
@@ -15,7 +15,13 @@ public abstract class Product {
 
     @Override
     public String toString() {
-        return "Имя" + this.name;
+        return this.name;
     }
+
+
+    public abstract boolean isSpecial();
 }
+
+
+
 
