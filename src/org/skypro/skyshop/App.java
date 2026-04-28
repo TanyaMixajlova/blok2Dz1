@@ -1,12 +1,13 @@
 package org.skypro.skyshop;
 
 import java.util.Scanner;
+import java.util.Arrays;
 
-import org.skypro.skyshop.product.Product;
-import org.skypro.skyshop.product.SimpleProduct;
+
+import org.skypro.skyshop.product.*;
 import org.skypro.skyshop.basket.ProductBasket;
-import org.skypro.skyshop.product.DiscountedProduct;
-import org.skypro.skyshop.product.FixPriceProduct;
+import org.skypro.skyshop.product.SearchEngine;
+
 
 public class App {
     public static void main(String[] args) {
@@ -60,5 +61,41 @@ public class App {
         String productInBasket2 = scanner.nextLine();
         boolean elementBasket = element.productSearch(productInBasket2);
         System.out.println("Продукт: " + elementBasket);
+
+
+
+
+        System.out.println("новая часть кода" );
+
+        Article product7 = new Article("Java","Полиморфиз и интерфейсы");
+        Article product8 = new Article("Статья 2","Текст статьи 2");
+
+        SearchEngine element2 = new SearchEngine(7);
+
+
+        //Добавление продукта в массив.
+        element2.add(product1);
+        element2.add(product2);
+        element2.add(product3);
+        element2.add(product4);
+        element2.add(product5);
+        element2.add(product6);
+        element2.add(product7);
+        element2.add(product8);
+
+
+        Searchable[] results = element2.search("Полиморфизм");
+        System.out.println(Arrays.toString(results));
+
+
+        results = element2.search("ARTICLE");
+        System.out.println(Arrays.toString(results));
+
+
+        results = element2.search("PRODUCT");
+        System.out.println(Arrays.toString(results));
+
+
+
     }
 }
