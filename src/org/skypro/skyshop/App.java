@@ -77,11 +77,11 @@ public class App {
         element2.add(product1);
         element2.add(product2);
         element2.add(product3);
+        element2.add(product8);
+        element2.add(product7);
+        element2.add(product6);
         element2.add(product4);
         element2.add(product5);
-        element2.add(product6);
-        element2.add(product7);
-        element2.add(product8);
 
 
         Searchable[] results = element2.search("Полиморфизм");
@@ -92,7 +92,7 @@ public class App {
         System.out.println(Arrays.toString(results));
 
 
-        results = element2.search("PRODUCT");
+        results = element2.search("яблоки");
         System.out.println(Arrays.toString(results));
 
 

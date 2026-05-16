@@ -18,7 +18,7 @@ public class Article implements Searchable {
         return this.titleArticle;
     }
     public String getTextArticle() {
-        return this.titleArticle;
+        return this.textArticle;
     }
 
     @Override

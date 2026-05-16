@@ -13,7 +13,7 @@ public class SearchEngine {
         for (Searchable element : searchableArray) {
             if (element != null) {
                 System.out.println("Checking element: " + element.getStringRepresentation());
-                if (element.searchTerm().contains(searchBar)) {
+                if (element.typeOfContent().contains(searchBar)) {
                     results[i] = element;
                     i++;
                     if (i >= 5) {
