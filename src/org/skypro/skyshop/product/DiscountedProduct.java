@@ -8,7 +8,13 @@ public class DiscountedProduct extends Product {
     public DiscountedProduct(String name, int basePrice, byte discount) {
         super(name);
         this.basePrice = basePrice;
+        if (this.basePrice <= 0) {
+            throw new IllegalArgumentException("Цена должна быть больше нуля");
+        }
         this.discount = discount;
+        if (this.discount < 0 || this.discount >100) {
+            throw new IllegalArgumentException("Процент должен быть в пределах 100");
+        }
     }
 
     @Override
