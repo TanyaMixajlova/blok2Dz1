@@ -21,7 +21,6 @@ public class App {
 
         try {
             SimpleProduct product2 = new SimpleProduct("сахар", -20);
-            ;
             element.addBasket(product2);
             element2.add(product2);
         } catch (IllegalArgumentException e) {
