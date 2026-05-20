@@ -20,7 +20,7 @@ public class App {
         SearchEngine element2 = new SearchEngine(7);
 
         try {
-            SimpleProduct product2 = new SimpleProduct("сахар", -20);
+            SimpleProduct product2 = new SimpleProduct("     ", -20);
             element.addBasket(product2);
             element2.add(product2);
         } catch (IllegalArgumentException e) {
