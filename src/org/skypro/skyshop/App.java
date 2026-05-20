@@ -13,19 +13,28 @@ public class App {
     public static void main(String[] args) {
         SimpleProduct product1 = new SimpleProduct("яблоки красные", 150);
         DiscountedProduct product3 = new DiscountedProduct("яблоки зеленые", 200, (byte) 20);
-        FixPriceProduct product5 = new FixPriceProduct("хлеб");
         FixPriceProduct product6 = new FixPriceProduct("молоко");
 
         ProductBasket element = new ProductBasket();
         SearchEngine element2 = new SearchEngine(7);
 
         try {
-            SimpleProduct product2 = new SimpleProduct("     ", -20);
+            SimpleProduct product2 = new SimpleProduct("сахар", -20);
             element.addBasket(product2);
             element2.add(product2);
+
         } catch (IllegalArgumentException e) {
             System.out.println("Ошибка: " + e.getMessage());
         }
+
+        try {
+            FixPriceProduct product5 = new FixPriceProduct("     ");
+            element.addBasket(product5);
+            element2.add(product5);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Ошибка: " + e.getMessage());
+        }
+
         try {
             DiscountedProduct product4 = new DiscountedProduct("конфеты", 100, (byte) 130);
             element.addBasket(product4);
@@ -38,7 +47,7 @@ public class App {
         //Добавление продукта в корзину.
         element.addBasket(product1);
         element.addBasket(product3);
-        element.addBasket(product5);
+
         //Добавление продукта в заполненную корзину, в которой нет свободного места.
         element.addBasket(product6);
 
@@ -88,7 +97,7 @@ public class App {
         element2.add(product8);
         element2.add(product7);
         element2.add(product6);
-        element2.add(product5);
+
 
 
         try {
