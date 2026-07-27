@@ -25,6 +25,9 @@ public class Article implements Searchable {
     public String searchTerm(){
         return titleArticle + textArticle;
     };
+
+
+
     @Override
     public String typeOfContent() {
         return "ARTICLE";

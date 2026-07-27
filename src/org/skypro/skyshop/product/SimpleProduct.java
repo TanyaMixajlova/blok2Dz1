@@ -1,11 +1,14 @@
 package org.skypro.skyshop.product;
 
 public class SimpleProduct extends Product {
-private final int price;
+    private final int price;
 
-public SimpleProduct (String name, int price){
-    super(name);
-    this.price = price;
+    public SimpleProduct(String name, int price) {
+        super(name);
+        this.price = price;
+        if (this.price <= 0) {
+            throw new IllegalArgumentException("Цена должна быть больше нуля");
+        }
     }
 
     @Override
@@ -16,7 +19,7 @@ public SimpleProduct (String name, int price){
 
     @Override
     public String toString() {
-        return super.toString() + ": " + this.price ;
+        return super.toString() + ": " + this.price;
     }
 
     @Override

@@ -1,5 +1,7 @@
 package org.skypro.skyshop.product;
 
+import org.skypro.skyshop.BestResultNotFound;
+
 public class SearchEngine {
     private Searchable[] searchableArray;
 
@@ -7,23 +9,35 @@ public class SearchEngine {
         this.searchableArray = new Searchable[size];
     }
 
-    public Searchable[] search(String searchBar) {
-        Searchable[] results = new Searchable[5];
-        int i = 0;
+    public Searchable Search(String searchBar) throws BestResultNotFound {
+
+        Searchable bestMatch = null;
+        int maxCount = 0;
         for (Searchable element : searchableArray) {
             if (element != null) {
-                System.out.println("Checking element: " + element.getStringRepresentation());
-                if (element.typeOfContent().contains(searchBar)) {
-                    results[i] = element;
-                    i++;
-                    if (i >= 5) {
-                        break;
-                    }
+                int index = 0;
+                int count = 0;
+                String searchTerm = element.searchTerm();
+                int indexStr = searchTerm.indexOf(searchBar, index);
+
+                while (indexStr != -1) {
+                    count++;
+                    index = indexStr + searchBar.length();
+                    indexStr = searchTerm.indexOf(searchBar, index);
+                }
+
+                if (count > maxCount) {
+                    maxCount = count;
+                    bestMatch = element;
                 }
             }
         }
-        return results;
+        if (bestMatch == null) {
+            throw new BestResultNotFound("Нет подходящего объекта");
+        }
+        return bestMatch;
     }
+
 
     public void add(Searchable newSearchable) {
         for (int i = 0; i < searchableArray.length; i++) {
