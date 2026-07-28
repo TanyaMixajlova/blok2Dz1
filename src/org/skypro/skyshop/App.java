@@ -17,7 +17,7 @@ public class App {
         Product product3 = new FixPriceProduct("молоко");
 
         ProductBasket element = new ProductBasket();
-        SearchEngine element2 = new SearchEngine(7);
+        SearchEngine element2 = new SearchEngine();
 
         try {
             Product product4 = new SimpleProduct("сахар", -20);
@@ -120,22 +120,22 @@ public class App {
 
         Article product7 = new Article("Питон язык программирования и Java язык программирования ", "Полиморфиз и интерфейсы");
         Article product8 = new Article("си язык программирования ", "Текст статьи 2");
-
-
-        //Добавление продукта в массив.
+        Article product9 = new Article("си++ язык программирования ", "Текст статьи 3");
+        Article product10 = new Article("си+ язык программирования ", "Текст статьи 4");
+        //Добавление продукта в список.
         element2.add(product1);
         element2.add(product3);
         element2.add(product8);
         element2.add(product7);
         element2.add(product2);
-
-
+        element2.add(product9);
+        element2.add(product10);
 
         try {
-            Searchable result = element2.Search("программирования");
-            System.out.println(result);
-            Searchable result2 = element2.Search("мармелад");
-            System.out.println(result2);
+            List<Searchable> results1 = element2.Search("программирования");
+            System.out.println(results1);
+            List<Searchable> results2 = element2.Search("мармелад");
+            System.out.println(results2);
         } catch (BestResultNotFound e) {
             // Обрабатываем наше исключение
             System.out.println("Произошло исключение: " + e.getMessage());
