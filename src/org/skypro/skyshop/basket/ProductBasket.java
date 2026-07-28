@@ -24,6 +24,9 @@ public class ProductBasket {
 
     public List<Product> removalProducts(String productName) {
         Iterator<Product> iterator = list.iterator();
+        if (productName == null || productName.isEmpty()) {
+            return new LinkedList<>();
+        }
         List<Product> listRemovalProducts = new LinkedList<>();
         // Перебор элементов с использованием итератора
         while (iterator.hasNext()) {
