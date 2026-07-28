@@ -2,7 +2,8 @@ package org.skypro.skyshop;
 
 import java.util.Scanner;
 import java.util.Arrays;
-
+import java.util.List;
+import java.util.LinkedList;
 
 import org.skypro.skyshop.product.*;
 import org.skypro.skyshop.basket.ProductBasket;
@@ -11,17 +12,17 @@ import org.skypro.skyshop.product.SearchEngine;
 
 public class App {
     public static void main(String[] args) {
-        SimpleProduct product1 = new SimpleProduct("яблоки красные", 150);
-        DiscountedProduct product3 = new DiscountedProduct("яблоки зеленые", 200, (byte) 20);
-        FixPriceProduct product6 = new FixPriceProduct("молоко");
+        Product product1 = new SimpleProduct("яблоки красные", 150);
+        Product product2 = new DiscountedProduct("яблоки зеленые", 200, (byte) 20);
+        Product product3 = new FixPriceProduct("молоко");
 
         ProductBasket element = new ProductBasket();
         SearchEngine element2 = new SearchEngine(7);
 
         try {
-            SimpleProduct product2 = new SimpleProduct("сахар", -20);
-            element.addBasket(product2);
-            element2.add(product2);
+            Product product4 = new SimpleProduct("сахар", -20);
+            element.addProduct(product4);
+            element2.add(product4);
 
         } catch (IllegalArgumentException e) {
             System.out.println("Ошибка: " + e.getMessage());
@@ -29,30 +30,33 @@ public class App {
 
         try {
             FixPriceProduct product5 = new FixPriceProduct("     ");
-            element.addBasket(product5);
+            element.addProduct(product5);
             element2.add(product5);
         } catch (IllegalArgumentException e) {
             System.out.println("Ошибка: " + e.getMessage());
         }
 
         try {
-            DiscountedProduct product4 = new DiscountedProduct("конфеты", 100, (byte) 130);
-            element.addBasket(product4);
-            element2.add(product4);
+            DiscountedProduct product6 = new DiscountedProduct("конфеты", 100, (byte) 130);
+            element.addProduct(product6);
+            element2.add(product6);
         } catch (IllegalArgumentException e) {
             System.out.println("Ошибка: " + e.getMessage());
         }
 
 
         //Добавление продукта в корзину.
-        element.addBasket(product1);
-        element.addBasket(product3);
-
-        //Добавление продукта в заполненную корзину, в которой нет свободного места.
-        element.addBasket(product6);
+        element.addProduct(product1);
+        element.addProduct(product2);
+        element.addProduct(product3);
+        element.addProduct(product1);
+        element.addProduct(product3);
+        element.addProduct(product2);
 
         //Печать содержимого корзины с несколькими товарами и получение стоимости корзины с несколькими товарами.
+        System.out.println("Список продуктов в корзине" );
         element.printBasket();
+
 
         // Поиск продукта в корзине
         Scanner scanner = new Scanner(System.in);
@@ -60,6 +64,33 @@ public class App {
         String productInBasket = scanner.nextLine();
         boolean a = element.productSearch(productInBasket);
         System.out.println("Продукт: " + a);
+
+        // Удаление продукта из корзины
+        Scanner scanner1 = new Scanner(System.in);
+        System.out.print("Введите название продукта, находящегося в корзине: ");
+        String productToRemove = scanner.nextLine();
+        List<Product> removedProducts = element.removalProducts(productToRemove);
+        System.out.println("Список удаленных продуктов: " + removedProducts);
+
+        //Печать содержимого корзины с несколькими товарами и получение стоимости корзины с несколькими товарами.
+        System.out.println("Список продуктов в корзине" );
+        element.printBasket();
+
+        // Удаление несуществующего продукта из корзины
+        Scanner scanner2 = new Scanner(System.in);
+        System.out.print("Введите название продукта, находящегося в корзине: ");
+        String productToRemove2 = scanner.nextLine();
+        List<Product> removedProducts2 = element.removalProducts(productToRemove);
+        if (removedProducts2.isEmpty()) {
+            System.out.println("Список пуст");
+        } else {
+            System.out.println("Список содержит элементы");
+        }
+
+        //Печать содержимого корзины с несколькими товарами и получение стоимости корзины с несколькими товарами.
+        System.out.println("Список продуктов в корзине" );
+        element.printBasket();
+
 
         // Поиск товара, которого нет в корзине
         String productInBasket1 = "масло";
@@ -78,7 +109,7 @@ public class App {
         element.gettingBasketPrice();
 
         //Поиск товара по имени в пустой корзине
-        Scanner scanner1 = new Scanner(System.in);
+        Scanner scanner3 = new Scanner(System.in);
         System.out.print("Введите название продукта: ");
         String productInBasket2 = scanner.nextLine();
         boolean elementBasket = element.productSearch(productInBasket2);
@@ -96,7 +127,7 @@ public class App {
         element2.add(product3);
         element2.add(product8);
         element2.add(product7);
-        element2.add(product6);
+        element2.add(product2);
 
 
 
