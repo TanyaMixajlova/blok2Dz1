@@ -2,41 +2,49 @@ package org.skypro.skyshop.basket;
 
 import org.skypro.skyshop.product.Product;
 
-
+import java.util.List;
+import java.util.LinkedList;
+import java.util.Iterator;
 
 public class ProductBasket {
-    private final Product[] productBasket = new Product[5];
+    private final List<Product> list = new LinkedList<>();
+    int basketPrice = 0;
 
-
-    public void addBasket(Product product) {
-        for (int i = 0; i < productBasket.length; i++) {
-            if (productBasket[i] == null) {
-                productBasket[i] = product;
-                return;
-            }
-        }
-        System.out.println("Продукт добавить невозможно");
+    public void addProduct(Product product) {
+        list.add(product);
+        basketPrice += product.getPrice();
     }
 
     public int gettingBasketPrice() {
-        int basketPrice = 0;
-        boolean isEmpty = true;
-        for (Product product : productBasket) {
-            if (product != null) {
-                basketPrice += product.getPrice();
-                isEmpty = false;
-            }
-        }
-        if (isEmpty) {
+        if (list.isEmpty()) {
             System.out.println("В корзине пусто");
         }
         return basketPrice;
     }
 
+    public List<Product> removalProducts(String productName) {
+        if (productName == null || productName.isEmpty()) {
+            return new LinkedList<>();
+        }
+        Iterator<Product> iterator = list.iterator();
+        List<Product> listRemovalProducts = new LinkedList<>();
+        // Перебор элементов с использованием итератора
+        while (iterator.hasNext()) {
+            Product element = iterator.next();
+            {
+                if (element.getName().equals(productName)) {
+                    iterator.remove();
+                    basketPrice -= element.getPrice();
+                    listRemovalProducts.add(element);
+                }
+            }
+        }return listRemovalProducts; // Вывод списка удаленных продуктов
+    }
+
     public int countingSpecialProducts() {
         int specialProductCount = 0;
-        for (Product product : productBasket) {
-            if (product != null && product.isSpecial()) {
+        for (Product product : list) {
+            if (product.isSpecial()) {
                 specialProductCount++;
             }
         }
@@ -46,18 +54,16 @@ public class ProductBasket {
     public void printBasket() {
         int basketPrice = gettingBasketPrice();
 
-        for (Product product : productBasket) {
-            if (product != null) {
-                System.out.println(product.toString());
-            }
+        for (Product product : list) {
+            System.out.println(product.toString());
         }
         System.out.println("Итого: " + basketPrice);
         System.out.println("Специальных товаров " + countingSpecialProducts());
     }
 
-    public boolean productSearch(String productInBasket){
-        for (Product product : productBasket) {
-            if (product != null && product.getName().equals(productInBasket)) {
+    public boolean productSearch(String productInBasket) {
+        for (Product product : list) {
+            if (product.getName().equals(productInBasket)) {
                 return true; // Продукт найден
             }
         }
@@ -65,10 +71,11 @@ public class ProductBasket {
     }
 
     public void clearingBasket() {
-        for (int i = 0; i < productBasket.length; i++) {
-            productBasket[i] = null;
-        }
+        list.clear();
+        basketPrice = 0;
     }
 
+
 }
+
 
