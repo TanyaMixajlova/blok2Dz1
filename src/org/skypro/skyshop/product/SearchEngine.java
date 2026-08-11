@@ -24,7 +24,6 @@ public class SearchEngine {
         }
         return results;
     }
-
     public void add(Searchable newSearchable) {
         searchables.add(newSearchable);
     }
