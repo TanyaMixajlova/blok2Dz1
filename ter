@@ -1,0 +1,144 @@
+[33mcommit 3788dcb74d3511c19e4152708b2a96c9d637896d[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: 866f37e 30a7722
+Author: TanyaMixajlova <tanya26reg2013@yandex.ru>
+Date:   Mon Jul 27 22:11:58 2026 +0300
+
+    Merge pull request #4 from TanyaMixajlova/icklucheniy
+    
+    Icklucheniy
+
+[33mcommit 30a7722b929794fff0729c706a7c5452e428e07c[m[33m ([m[1;31morigin/icklucheniy[m[33m, [m[1;32micklucheniy[m[33m)[m
+Author: TanyaMixajlova <tanya26reg2013@yandex.ru>
+Date:   Wed May 20 08:03:46 2026 +0300
+
+    поправила замечание2
+
+[33mcommit 38629cfa274b26a505de4b7c7ff64ded02f6e37b[m
+Author: TanyaMixajlova <tanya26reg2013@yandex.ru>
+Date:   Wed May 20 07:59:08 2026 +0300
+
+    поправила замечание
+
+[33mcommit 3e25d7db1da923da2d99e3b5c21062073bfcb4b1[m
+Author: TanyaMixajlova <tanya26reg2013@yandex.ru>
+Date:   Wed May 20 00:18:23 2026 +0300
+
+    конечный результат для проверки2
+
+[33mcommit 3b5fb0357318f5885d25206aeefffede842b1356[m
+Author: TanyaMixajlova <tanya26reg2013@yandex.ru>
+Date:   Wed May 20 00:17:47 2026 +0300
+
+    конечный результат для проверки
+
+[33mcommit 3001d6e90ee72a8ff2645ab046ea277099afb39a[m
+Author: TanyaMixajlova <tanya26reg2013@yandex.ru>
+Date:   Sat May 16 19:20:50 2026 +0300
+
+    создана новая ветка и выполнен первый пункт задания
+
+[33mcommit 866f37e0500612a887fa16036387a2039b53984f[m
+Merge: 586c160 4cdf4c8
+Author: TanyaMixajlova <tanya26reg2013@yandex.ru>
+Date:   Sat May 16 17:47:16 2026 +0300
+
+    Merge pull request #3 from TanyaMixajlova/полиморфимИнтерфейсы
+    
+    конечный код для проверки
+
+[33mcommit 4cdf4c822c38b11e10646523c8f388fe3c001ffb[m[33m ([m[1;31morigin/полиморфимИнтерфейсы[m[33m, [m[1;32mполиморфимИнтерфейсы[m[33m)[m
+Author: TanyaMixajlova <tanya26reg2013@yandex.ru>
+Date:   Sat May 16 14:06:21 2026 +0300
+
+    конечный код для проверки с исправлениями
+
+[33mcommit b7683f6cbfd15bf88bdc689b0b44c1984f0b96e3[m
+Author: TanyaMixajlova <tanya26reg2013@yandex.ru>
+Date:   Wed Apr 29 00:05:37 2026 +0300
+
+    конечный код для проверки
+
+[33mcommit 586c16051c55c09828b3aa1947c533ee40f1f155[m
+Merge: fc3efc7 9d160e3
+Author: TanyaMixajlova <tanya26reg2013@yandex.ru>
+Date:   Thu Apr 23 22:33:53 2026 +0300
+
+    Merge pull request #2 from TanyaMixajlova/DZnasledovanie
+    
+    D znasledovanie
+
+[33mcommit 9d160e388b02885545068003483e6cd79855b857[m[33m ([m[1;31morigin/DZnasledovanie[m[33m, [m[1;32mDZnasledovanie[m[33m)[m
+Author: TanyaMixajlova <tanya26reg2013@yandex.ru>
+Date:   Sun Apr 19 15:15:17 2026 +0300
+
+    Создана новая ветка. Классы изменены на абстрактные, создан класс SimpleProduct /DiscountedProduct/ FixPriceProduct
+    добавлены специальные товары/ в корзину добавлен подсчет спец.товаров и изменен вывод товаров
+
+[33mcommit cd271ab8df7676751ad00e24d04f1b39d1d8e4ce[m
+Author: TanyaMixajlova <tanya26reg2013@yandex.ru>
+Date:   Sat Apr 18 20:04:23 2026 +0300
+
+    Создана новая ветка. Классы изменены на абстрактные, создан класс SimpleProduct
+
+[33mcommit fc3efc7309f0863f9c189a0ff34da7a2890aa24a[m
+Merge: fdce8c8 6c522e6
+Author: TanyaMixajlova <tanya26reg2013@yandex.ru>
+Date:   Mon Apr 13 23:01:51 2026 +0300
+
+    Merge pull request #1 from TanyaMixajlova/blok2Dz1
+    
+    Blok2 dz2. Переходим к 3 заданию
+
+[33mcommit 6c522e6ab5705aefd91415485925450c0f6bfe1c[m[33m ([m[1;31morigin/blok2Dz1[m[33m, [m[1;32mblok2Dz1[m[33m)[m
+Author: TanyaMixajlova <tanya26reg2013@yandex.ru>
+Date:   Fri Apr 3 02:14:43 2026 +0300
+
+    созданы и реализованы методы
+
+[33mcommit 40097221736dde44dbdb493782eb5143f23489ef[m
+Author: TanyaMixajlova <tanya26reg2013@yandex.ru>
+Date:   Wed Apr 1 22:19:36 2026 +0300
+
+    создание пакетов и перенос классов в пакеты
+
+[33mcommit 4ff1469b1a78105761178e14ee599f6518572519[m
+Author: TanyaMixajlova <tanya26reg2013@yandex.ru>
+Date:   Tue Mar 31 21:48:59 2026 +0300
+
+    создание класса Basket
+
+[33mcommit 3c443502c9f1213340ac2114ad93212355ef4f7f[m
+Author: TanyaMixajlova <tanya26reg2013@yandex.ru>
+Date:   Tue Mar 31 21:12:52 2026 +0300
+
+    удаление лишнего класса и создание класса продукт
+
+[33mcommit 34f8b85f54a2394b51d3bafc1f5c80ebfbf639c3[m
+Author: TanyaMixajlova <tanya26reg2013@yandex.ru>
+Date:   Mon Mar 30 22:24:06 2026 +0300
+
+    Создание класса Product
+
+[33mcommit 8cd0cd4507b6969ec5d44f2a220a789ef6480888[m
+Author: TanyaMixajlova <tanya26reg2013@yandex.ru>
+Date:   Mon Mar 30 22:21:25 2026 +0300
+
+    Перенос класса App в новый пакет
+
+[33mcommit dfd3ca18bac778d9a7a677c3606a3a31f5c480b8[m
+Author: TanyaMixajlova <tanya26reg2013@yandex.ru>
+Date:   Mon Mar 30 22:19:26 2026 +0300
+
+    Перенос класса App в новый пакет
+
+[33mcommit fdce8c8afe01fac4b504cee44e1a4b71d42bf765[m
+Author: TanyaMixajlova <tanya26reg2013@yandex.ru>
+Date:   Mon Mar 30 17:39:11 2026 +0300
+
+    добавление класса App
+
+[33mcommit 6c72c094617090d78da40881f5441961abd6b024[m
+Author: TanyaMixajlova <tanya26reg2013@yandex.ru>
+Date:   Mon Mar 30 16:45:46 2026 +0300
+
+    начальный код

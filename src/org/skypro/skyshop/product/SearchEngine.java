@@ -2,21 +2,20 @@ package org.skypro.skyshop.product;
 
 import org.skypro.skyshop.BestResultNotFound;
 
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class SearchEngine {
-    private List<Searchable> searchables = new LinkedList<>();
+
+    private List<Searchable> searchables;
 
     public SearchEngine() {
         this.searchables = new LinkedList<>();
     }
-
-    public List<Searchable> Search(String searchBar) throws BestResultNotFound {
-        List<Searchable> results = new LinkedList<>();
-        for (Searchable element : searchables) {
-            if (element != null && element.searchTerm().contains(searchBar)) {
-                results.add(element);
+    public Map<String, Searchable> search(String searchBar) throws BestResultNotFound {
+        Map<String, Searchable> results = new TreeMap<>();
+        for (Searchable searchableItem : searchables) {
+            if (searchableItem.searchTerm().contains(searchBar)) {
+                results.put(searchableItem.getName(), searchableItem);
             }
         }
         if (results.isEmpty()) {
@@ -24,11 +23,11 @@ public class SearchEngine {
         }
         return results;
     }
-
     public void add(Searchable newSearchable) {
         searchables.add(newSearchable);
     }
 }
+
 
 
 
