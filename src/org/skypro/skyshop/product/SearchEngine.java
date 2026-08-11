@@ -11,7 +11,6 @@ public class SearchEngine {
     public SearchEngine() {
         this.searchables = new LinkedList<>();
     }
-
     public Map<String, Searchable> search(String searchBar) throws BestResultNotFound {
         Map<String, Searchable> results = new TreeMap<>();
         for (Searchable searchableItem : searchables) {
