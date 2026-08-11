@@ -4,6 +4,8 @@ import java.util.Scanner;
 import java.util.Arrays;
 import java.util.List;
 import java.util.LinkedList;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.skypro.skyshop.product.*;
 import org.skypro.skyshop.basket.ProductBasket;
@@ -132,9 +134,9 @@ public class App {
         element2.add(product10);
 
         try {
-            List<Searchable> results1 = element2.Search("программирования");
+            Map<String, Searchable> results1 = element2.search("программирования");
             System.out.println(results1);
-            List<Searchable> results2 = element2.Search("мармелад");
+            Map<String, Searchable> results2 = element2.search("мармелад");
             System.out.println(results2);
         } catch (BestResultNotFound e) {
             // Обрабатываем наше исключение
