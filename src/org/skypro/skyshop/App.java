@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.LinkedList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.skypro.skyshop.product.*;
 import org.skypro.skyshop.basket.ProductBasket;
@@ -71,7 +73,7 @@ public class App {
         Scanner scanner1 = new Scanner(System.in);
         System.out.print("Введите название продукта, находящегося в корзине: ");
         String productToRemove = scanner.nextLine();
-        List<Product> removedProducts = element.removalProducts(productToRemove);
+        Set<Product> removedProducts = element.removalProducts(productToRemove);
         System.out.println("Список удаленных продуктов: " + removedProducts);
 
         //Печать содержимого корзины с несколькими товарами и получение стоимости корзины с несколькими товарами.
@@ -82,7 +84,7 @@ public class App {
         Scanner scanner2 = new Scanner(System.in);
         System.out.print("Введите название продукта, находящегося в корзине: ");
         String productToRemove2 = scanner.nextLine();
-        List<Product> removedProducts2 = element.removalProducts(productToRemove);
+        Set<Product> removedProducts2 = element.removalProducts(productToRemove);
         if (removedProducts2.isEmpty()) {
             System.out.println("Список пуст");
         } else {

@@ -6,11 +6,12 @@ import java.util.*;
 
 public class SearchEngine {
 
-    private List<Searchable> searchables;
+    private Set<Searchable> searchables;
 
     public SearchEngine() {
-        this.searchables = new LinkedList<>();
+        this.searchables = new HashSet<>();
     }
+
     public Map<String, Searchable> search(String searchBar) throws BestResultNotFound {
         Map<String, Searchable> results = new TreeMap<>();
         for (Searchable searchableItem : searchables) {

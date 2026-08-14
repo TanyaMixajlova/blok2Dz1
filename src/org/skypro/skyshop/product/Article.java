@@ -22,15 +22,23 @@ public class Article implements Searchable {
     }
 
     @Override
+    public String getName() {
+        return "";
+    }
+
+    @Override
     public String searchTerm(){
         return titleArticle + textArticle;
     };
 
-
-
     @Override
     public String typeOfContent() {
         return "ARTICLE";
+    }
+
+    @Override
+    public String getStringRepresentation() {
+        return Searchable.super.getStringRepresentation();
     }
 
 }
