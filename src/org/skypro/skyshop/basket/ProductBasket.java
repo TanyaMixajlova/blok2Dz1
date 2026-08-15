@@ -75,26 +75,3 @@ public class ProductBasket {
         basketPrice = 0;
     }
 }
-
-
-//List<Product> products = list.get(productName);
-// if (products == null) {
-//   return new LinkedList<>();
-// }
-// if (productName == null || productName.isEmpty()) {
-// return new LinkedList<>();
-//}
-//Iterator<Product> iterator = products.iterator();
-//List<Product> listRemovalProducts = new LinkedList<>();
-// Перебор элементов с использованием итератора
-//while (iterator.hasNext()) {
-//  Product element = iterator.next();
-//            {
-//                if (element.getName().equals(productName)) {
-//                    iterator.remove();
-//                    basketPrice -= element.getPrice();
-//                    listRemovalProducts.add(element);
-//                }
-//            }
-//        }
-//        return listRemovalProducts; // Вывод списка удаленных продуктов

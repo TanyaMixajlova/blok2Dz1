@@ -12,11 +12,11 @@ public class SearchEngine {
         this.searchables = new HashSet<>();
     }
 
-    public Map<String, Searchable> search(String searchBar) throws BestResultNotFound {
-        Map<String, Searchable> results = new TreeMap<>();
+    public Set<Searchable> search(String searchBar) throws BestResultNotFound {
+        Set<Searchable> results = new TreeSet<>(new SearchableComparator());
         for (Searchable searchableItem : searchables) {
             if (searchableItem.searchTerm().contains(searchBar)) {
-                results.put(searchableItem.getName(), searchableItem);
+                results.add(searchableItem);
             }
         }
         if (results.isEmpty()) {

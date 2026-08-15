@@ -47,7 +47,10 @@ public abstract class Product implements Searchable {
         Product product = (Product) other;
         return Objects.equals(name, product.name);
     }
-
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
+    }
 
 }
 

@@ -72,7 +72,7 @@ public class App {
         // Удаление продукта из корзины
         Scanner scanner1 = new Scanner(System.in);
         System.out.print("Введите название продукта, находящегося в корзине: ");
-        String productToRemove = scanner.nextLine();
+        String productToRemove = scanner1.nextLine();
         Set<Product> removedProducts = element.removalProducts(productToRemove);
         System.out.println("Список удаленных продуктов: " + removedProducts);
 
@@ -83,9 +83,9 @@ public class App {
         // Удаление несуществующего продукта из корзины
         Scanner scanner2 = new Scanner(System.in);
         System.out.print("Введите название продукта, находящегося в корзине: ");
-        String productToRemove2 = scanner.nextLine();
+        String productToRemove2 = scanner2.nextLine();
         Set<Product> removedProducts2 = element.removalProducts(productToRemove);
-        if (removedProducts2.isEmpty()) {
+        if (removedProducts2 == null || removedProducts2.isEmpty()) {
             System.out.println("Список пуст");
         } else {
             System.out.println("Список содержит элементы");
@@ -136,9 +136,9 @@ public class App {
         element2.add(product10);
 
         try {
-            Map<String, Searchable> results1 = element2.search("программирования");
+            Set<Searchable> results1 = element2.search("программирования");
             System.out.println(results1);
-            Map<String, Searchable> results2 = element2.search("мармелад");
+            Set<Searchable> results2 = element2.search("мармелад");
             System.out.println(results2);
         } catch (BestResultNotFound e) {
             // Обрабатываем наше исключение
