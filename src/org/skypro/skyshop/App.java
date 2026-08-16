@@ -48,7 +48,7 @@ public class App {
             System.out.println("Ошибка: " + e.getMessage());
         }
 
-
+        System.out.println("Добавление продукта в корзину" );
         //Добавление продукта в корзину.
         element.addProduct(product1);
         element.addProduct(product2);
@@ -61,7 +61,8 @@ public class App {
         System.out.println("Список продуктов в корзине" );
         element.printBasket();
 
-
+        System.out.println("Поиск продукта в корзине." );
+        System.out.println("   " );
         // Поиск продукта в корзине
         Scanner scanner = new Scanner(System.in);
         System.out.print("Введите название продукта: ");
@@ -69,6 +70,8 @@ public class App {
         boolean a = element.productSearch(productInBasket);
         System.out.println("Продукт: " + a);
 
+        System.out.println("   " );
+        System.out.println("Удаление продукта из корзины." );
         // Удаление продукта из корзины
         Scanner scanner1 = new Scanner(System.in);
         System.out.print("Введите название продукта, находящегося в корзине: ");
@@ -76,10 +79,14 @@ public class App {
         Set<Product> removedProducts = element.removalProducts(productToRemove);
         System.out.println("Список удаленных продуктов: " + removedProducts);
 
+        System.out.println("   " );
+        System.out.println("Печать содержимого корзины с несколькими товарами и получение стоимости корзины с несколькими товарами" );
         //Печать содержимого корзины с несколькими товарами и получение стоимости корзины с несколькими товарами.
         System.out.println("Список продуктов в корзине" );
         element.printBasket();
 
+        System.out.println("   " );
+        System.out.println("Удаление несуществующего продукта из корзины" );
         // Удаление несуществующего продукта из корзины
         Scanner scanner2 = new Scanner(System.in);
         System.out.print("Введите название продукта, находящегося в корзине: ");
@@ -90,12 +97,14 @@ public class App {
         } else {
             System.out.println("Список содержит элементы");
         }
-
+        System.out.println("   " );
+        System.out.println("Печать содержимого корзины с несколькими товарами и получение стоимости корзины с несколькими товарами.");
         //Печать содержимого корзины с несколькими товарами и получение стоимости корзины с несколькими товарами.
         System.out.println("Список продуктов в корзине" );
         element.printBasket();
 
-
+        System.out.println("   " );
+        System.out.println("Поиск товара, которого нет в корзине" );
         // Поиск товара, которого нет в корзине
         String productInBasket1 = "масло";
         boolean b = element.productSearch(productInBasket1);
@@ -105,13 +114,17 @@ public class App {
         element.clearingBasket();
 
         //Печать содержимого пустой корзины
+        System.out.println("   " );
         System.out.println("Печать содержимого пустой корзины");
         element.printBasket();
 
         //Получение стоимости пустой корзины
+        System.out.println("   " );
         System.out.println("Получение стоимости пустой корзины");
         element.gettingBasketPrice();
 
+        System.out.println("   " );
+        System.out.println("Поиск товара по имени в пустой корзине");
         //Поиск товара по имени в пустой корзине
         Scanner scanner3 = new Scanner(System.in);
         System.out.print("Введите название продукта: ");
@@ -119,7 +132,7 @@ public class App {
         boolean elementBasket = element.productSearch(productInBasket2);
         System.out.println("Продукт: " + elementBasket);
 
-
+        System.out.println("   " );
         System.out.println("новая часть кода");
 
         Article product7 = new Article("Питон язык программирования и Java язык программирования ", "Полиморфиз и интерфейсы");
