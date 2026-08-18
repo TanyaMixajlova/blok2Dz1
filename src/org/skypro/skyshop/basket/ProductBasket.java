@@ -7,19 +7,22 @@ import java.util.LinkedList;
 import java.util.Iterator;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.HashSet;
+import java.util.Set;
+
 
 public class ProductBasket {
-    private final Map<String, List<Product>> list = new HashMap<>();
+    private final Map<String, Set<Product>> list = new HashMap<>();
     int basketPrice = 0;
 
     public void addProduct(Product product) {
-        list.computeIfAbsent(product.getName(), k -> new LinkedList<>()).add(product);
+        list.computeIfAbsent(product.getName(), k -> new HashSet<>()).add(product);
         basketPrice += product.getPrice();
     }
 
     public int gettingBasketPrice() {
         int total = 0;
-        for (List<Product> productList : list.values()) {
+        for (Set<Product> productList : list.values()) {
             for (Product product : productList) {
                 total += product.getPrice();
             }
@@ -28,36 +31,13 @@ public class ProductBasket {
     }
 
 
-    public List<Product> removalProducts(String productName) {
-       return list.remove(productName);
-
-
-        //List<Product> products = list.get(productName);
-       // if (products == null) {
-         //   return new LinkedList<>();
-       // }
-       // if (productName == null || productName.isEmpty()) {
-           // return new LinkedList<>();
-        //}
-        //Iterator<Product> iterator = products.iterator();
-        //List<Product> listRemovalProducts = new LinkedList<>();
-        // Перебор элементов с использованием итератора
-        //while (iterator.hasNext()) {
-          //  Product element = iterator.next();
-//            {
-//                if (element.getName().equals(productName)) {
-//                    iterator.remove();
-//                    basketPrice -= element.getPrice();
-//                    listRemovalProducts.add(element);
-//                }
-//            }
-//        }
-//        return listRemovalProducts; // Вывод списка удаленных продуктов
+    public Set<Product> removalProducts(String productName) {
+        return list.remove(productName);
     }
 
     public int countingSpecialProducts() {
         int specialProductCount = 0;
-        for (List<Product> productList : list.values()) {
+        for (Set<Product> productList : list.values()) {
             for (Product product : productList) {
                 // действия с каждым продуктом
                 if (product.isSpecial()) {
@@ -70,7 +50,7 @@ public class ProductBasket {
 
     public void printBasket() {
         int basketPrice = gettingBasketPrice();
-        for (List<Product> productList : list.values()) {
+        for (Set<Product> productList : list.values()) {
             for (Product product : productList) {
                 System.out.println(product.toString());
             }
@@ -80,7 +60,7 @@ public class ProductBasket {
     }
 
     public boolean productSearch(String productInBasket) {
-        for (List<Product> productList : list.values()) {
+        for (Set<Product> productList : list.values()) {
             for (Product product : productList) {
                 if (product.getName().equals(productInBasket)) {
                     return true; // Продукт найден
