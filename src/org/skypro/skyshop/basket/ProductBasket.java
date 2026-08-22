@@ -2,65 +2,58 @@ package org.skypro.skyshop.basket;
 
 import org.skypro.skyshop.product.Product;
 
-import java.util.List;
-import java.util.LinkedList;
-import java.util.Iterator;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 
 public class ProductBasket {
-    private final Map<String, Set<Product>> list = new HashMap<>();
+    private final Map<String, Set<Product>> listProduct = new HashMap<>();
     int basketPrice = 0;
 
+    //добавляем продукт
     public void addProduct(Product product) {
-        list.computeIfAbsent(product.getName(), k -> new HashSet<>()).add(product);
+        listProduct.computeIfAbsent(product.getName(), k -> new HashSet<>()).add(product);
         basketPrice += product.getPrice();
     }
 
+    //Получение цены на корзину
     public int gettingBasketPrice() {
-        int total = 0;
-        for (Set<Product> productList : list.values()) {
-            for (Product product : productList) {
-                total += product.getPrice();
-            }
-        }
-        return total;
+        //получения всех значений из listProduct, который является Map, и превращаем их в поток (stream). values() возвращает коллекцию списков товаров.
+        return listProduct.values().stream()
+                //Преобразуем поток списков товаров в один плоский поток товаров. Это позволяет работать с каждым товаром отдельно, а не с целыми списками товаров.
+                .flatMap(Collection::stream)
+                //Преобразуем каждый товар в его цену. mapToInt создаёт поток целых чисел, представляющих цену каждого товара в списке.
+                .mapToInt(Product::getPrice)
+                //Складываем все цены из потока, чтобы получить общую стоимость всех товаров в корзине.
+                .sum();
     }
-
 
     public Set<Product> removalProducts(String productName) {
-        return list.remove(productName);
+        return listProduct.remove(productName);
     }
 
-    public int countingSpecialProducts() {
-        int specialProductCount = 0;
-        for (Set<Product> productList : list.values()) {
-            for (Product product : productList) {
-                // действия с каждым продуктом
-                if (product.isSpecial()) {
-                    specialProductCount++;
-                }
-            }
-        }
-        return specialProductCount;
+    //Подсчет специальных продуктов
+    public long getSpecialCount() {
+        return listProduct.values().stream()
+                .flatMap(Collection::stream)
+                .filter(Product::isSpecial)
+                .count();
     }
 
+    // печатаем содержимое корзины
     public void printBasket() {
         int basketPrice = gettingBasketPrice();
-        for (Set<Product> productList : list.values()) {
-            for (Product product : productList) {
-                System.out.println(product.toString());
-            }
-        }
+        //получения всех значений из listProduct, который является Map, и превращаем их в поток (stream). values() возвращает коллекцию списков товаров.
+        listProduct.values().stream()
+                //Преобразуем поток списков товаров в один плоский поток товаров. Это позволяет работать с каждым товаром отдельно, а не с целыми списками товаров.
+                // Превращаем поток списков в поток отдельных продуктов
+                .flatMap(Collection::stream)
+                .forEach(product -> System.out.println(product.getName() + " - " + product.getPrice()));
         System.out.println("Итого: " + basketPrice);
-        System.out.println("Специальных товаров " + countingSpecialProducts());
+        System.out.println("Специальных товаров " + getSpecialCount());
     }
 
     public boolean productSearch(String productInBasket) {
-        for (Set<Product> productList : list.values()) {
+        for (Set<Product> productList : listProduct.values()) {
             for (Product product : productList) {
                 if (product.getName().equals(productInBasket)) {
                     return true; // Продукт найден
@@ -71,7 +64,7 @@ public class ProductBasket {
     }
 
     public void clearingBasket() {
-        list.clear();
+        listProduct.clear();
         basketPrice = 0;
     }
 }

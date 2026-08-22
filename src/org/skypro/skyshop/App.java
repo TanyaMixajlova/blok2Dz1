@@ -121,7 +121,7 @@ public class App {
         //Получение стоимости пустой корзины
         System.out.println("   " );
         System.out.println("Получение стоимости пустой корзины");
-        element.gettingBasketPrice();
+        System.out.println("Стоимость пустой корзины-" + element.gettingBasketPrice());
 
         System.out.println("   " );
         System.out.println("Поиск товара по имени в пустой корзине");
