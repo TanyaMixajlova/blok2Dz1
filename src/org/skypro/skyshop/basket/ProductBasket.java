@@ -48,7 +48,6 @@ public class ProductBasket {
                 // Превращаем поток списков в поток отдельных продуктов
                 .flatMap(Collection::stream)
                 .forEach(System.out::println);
-    //.forEach(product -> System.out.println(product.getName() + " - " + product.getPrice()));
         System.out.println("Итого: " + basketPrice);
         System.out.println("Специальных товаров " + getSpecialCount());
     }
