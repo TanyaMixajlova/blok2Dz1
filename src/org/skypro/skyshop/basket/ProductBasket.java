@@ -47,7 +47,8 @@ public class ProductBasket {
                 //Преобразуем поток списков товаров в один плоский поток товаров. Это позволяет работать с каждым товаром отдельно, а не с целыми списками товаров.
                 // Превращаем поток списков в поток отдельных продуктов
                 .flatMap(Collection::stream)
-                .forEach(product -> System.out.println(product.getName() + " - " + product.getPrice()));
+                .forEach(System.out::println);
+    //.forEach(product -> System.out.println(product.getName() + " - " + product.getPrice()));
         System.out.println("Итого: " + basketPrice);
         System.out.println("Специальных товаров " + getSpecialCount());
     }
